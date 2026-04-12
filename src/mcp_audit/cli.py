@@ -1,4 +1,4 @@
-"""mcp-audit command-line interface."""
+"""mcp-scan command-line interface."""
 from __future__ import annotations
 
 import asyncio
@@ -20,7 +20,7 @@ from mcp_audit.runner import ScanReport, run_scan
 import mcp_audit.checks  # noqa: F401
 
 app = typer.Typer(
-    name="mcp-audit",
+    name="mcp-scan",
     help="Security scanner for Model Context Protocol (MCP) servers.",
     no_args_is_help=True,
     add_completion=False,
@@ -160,8 +160,8 @@ def list_checks() -> None:
 
 @app.command()
 def version() -> None:
-    """Print mcp-audit version."""
-    console.print(f"mcp-audit {__version__}")
+    """Print mcp-scan version."""
+    console.print(f"mcp-scan {__version__}")
 
 
 if __name__ == "__main__":

@@ -1,4 +1,4 @@
-"""Base classes for mcp-audit checks.
+"""Base classes for mcp-scan checks.
 
 Every check subclasses ``Check`` and implements ``run``. A check returns a list
 of ``Finding`` objects — zero findings means the check passed.
@@ -81,7 +81,7 @@ class CheckResult:
 
 
 class Check:
-    """Base class for all mcp-audit checks.
+    """Base class for all mcp-scan checks.
 
     Subclasses must set ``id``, ``name``, ``category``, and ``default_severity``,
     and implement ``run``.

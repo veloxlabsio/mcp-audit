@@ -1,12 +1,12 @@
-# mcp-audit
+# mcp-scan
 
 > Security scanner for Model Context Protocol (MCP) servers.
 
-[![status: early alpha](https://img.shields.io/badge/status-early%20alpha-orange.svg)](https://github.com/veloxlabsio/mcp-audit)
+[![status: early alpha](https://img.shields.io/badge/status-early%20alpha-orange.svg)](https://github.com/veloxlabsio/mcp-scan)
 [![python: 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/)
 [![license: MIT](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
 
-**mcp-audit** is an open-source CLI that inspects MCP servers for known security issues. It connects to a server via stdio, fetches its tool/resource/prompt manifest, and runs a battery of checks against the metadata.
+**mcp-scan** is an open-source CLI that inspects MCP servers for known security issues. It connects to a server via stdio, fetches its tool/resource/prompt manifest, and runs a battery of checks against the metadata.
 
 > **Early alpha.** Currently ships 6 checks: 2 protocol-level (prompt injection markers, ANSI/control character smuggling) and 4 source-code AST checks (path traversal, shell injection, SSRF sinks, hardcoded secrets). 19 more are planned — see [`docs/checks.md`](docs/checks.md) for the full roadmap. Only stdio transport is implemented; HTTP/SSE is planned.
 
@@ -39,9 +39,7 @@ See [`docs/checks.md`](docs/checks.md) for the 19 additional checks planned for 
 ## Install
 
 ```bash
-pip install mcp-audit           # from PyPI (coming soon)
-# or during development:
-pip install -e ".[dev]"
+pip install velox-mcp-scan
 ```
 
 Requires Python 3.10+.
@@ -50,16 +48,16 @@ Requires Python 3.10+.
 
 ```bash
 # Scan a local stdio MCP server
-mcp-audit scan --stdio "python3 -m my_mcp_server"
+mcp-scan scan --stdio "python3 -m my_mcp_server"
 
 # Output JSON report
-mcp-audit scan --stdio "python3 -m my_mcp_server" --format json --output report.json
+mcp-scan scan --stdio "python3 -m my_mcp_server" --format json --output report.json
 
 # Only run critical-severity checks
-mcp-audit scan --stdio "python3 -m my_mcp_server" --severity critical
+mcp-scan scan --stdio "python3 -m my_mcp_server" --severity critical
 
 # List registered checks
-mcp-audit list-checks
+mcp-scan list-checks
 ```
 
 ## Try it on the vulnerable reference server
@@ -68,15 +66,15 @@ This repo ships with [`vulnerable-mcp`](vulnerable_mcp/) — a deliberately brok
 
 ```bash
 # Protocol-level checks only (catches vuln #1)
-mcp-audit scan --stdio "python3 -m vulnerable_mcp.server"
+mcp-scan scan --stdio "python3 -m vulnerable_mcp.server"
 
 # Protocol + source-code checks (catches all 5 vulns)
-mcp-audit scan --stdio "python3 -m vulnerable_mcp.server" --source ./vulnerable_mcp
+mcp-scan scan --stdio "python3 -m vulnerable_mcp.server" --source ./vulnerable_mcp
 ```
 
 ## Fail-closed design
 
-A security scanner that silently passes when something goes wrong is worse than no scanner. mcp-audit follows fail-closed principles:
+A security scanner that silently passes when something goes wrong is worse than no scanner. mcp-scan follows fail-closed principles:
 
 - **Introspection failures are surfaced as critical findings**, not swallowed. If the server can't respond to `tools/list`, you see a `CRITICAL` finding, not an empty clean report.
 - **Check execution errors cause non-zero exit**, even if no findings were produced. In CI, a broken scan is a failed scan.
@@ -94,4 +92,4 @@ MIT. See [LICENSE](LICENSE).
 
 ## Security
 
-Found a security issue in `mcp-audit` itself? Email `security@veloxlabs.dev` — please do not file a public issue.
+Found a security issue in `mcp-scan` itself? Email `security@veloxlabs.dev` — please do not file a public issue.

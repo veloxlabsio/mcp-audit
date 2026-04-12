@@ -1,3 +1,3 @@
-"""mcp-audit — security scanner for Model Context Protocol servers."""
+"""mcp-scan — security scanner for Model Context Protocol servers."""
 
-__version__ = "0.1.0.dev0"
+__version__ = "0.1.0"

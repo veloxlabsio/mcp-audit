@@ -1,4 +1,4 @@
-# mcp-audit TODO
+# mcp-scan TODO
 
 Last updated: 2026-04-12
 
