@@ -1,0 +1,13 @@
+[project]
+name = "vulnerable-mcp"
+version = "0.0.1"
+description = "Deliberately vulnerable MCP server for mcp-scan testing."
+requires-python = ">=3.11"
+
+# ⚠️ Intentionally pinned to vulnerable versions to demo MCPA-020.
+# DO NOT copy these pins into a real project.
+dependencies = [
+    "mcp>=1.2.0",
+    "python-multipart==0.0.6",  # CVE-2024-24762 (ReDoS)
+    "idna==3.6",                # CVE-2024-3651  (quadratic complexity)
+]
