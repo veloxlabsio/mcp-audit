@@ -1,4 +1,4 @@
-"""Registry of all mcp-scan checks.
+"""Registry of all mcp-audit checks.
 
 Individual check modules register themselves via ``register``. The runner
 iterates over ``REGISTRY`` to execute a scan.

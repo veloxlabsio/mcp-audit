@@ -1,6 +1,6 @@
 # vulnerable-mcp
 
-A deliberately broken MCP server, shipped with `mcp-scan` as a reference target.
+A deliberately broken MCP server, shipped with `mcp-audit` as a reference target.
 
 **Every tool in this server is insecure on purpose. Do not deploy it. Do not connect a production agent to it.**
 
@@ -27,7 +27,7 @@ python3 -m vulnerable_mcp.server
 ## Scan it
 
 ```bash
-mcp-scan scan --stdio "python3 -m vulnerable_mcp.server"
+mcp-audit scan --stdio "python3 -m vulnerable_mcp.server"
 ```
 
 Without `--source`: 2 findings (1 CRITICAL injection markers, 1 HIGH ANSI escape).

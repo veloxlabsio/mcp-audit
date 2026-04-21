@@ -1,7 +1,7 @@
 [project]
 name = "vulnerable-mcp"
 version = "0.0.1"
-description = "Deliberately vulnerable MCP server for mcp-scan testing."
+description = "Deliberately vulnerable MCP server for mcp-audit testing."
 requires-python = ">=3.11"
 
 # ⚠️ Intentionally pinned to vulnerable versions to demo MCPA-020.

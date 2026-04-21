@@ -7,9 +7,9 @@ against a small curated database of known CVEs in MCP-adjacent packages.
 Design notes:
 
 - **Offline / deterministic.** The advisory DB is bundled in source. No
-  network calls. This matches mcp-scan's core promise. The trade-off is
+  network calls. This matches mcp-audit's core promise. The trade-off is
   coverage — we catch only what we explicitly curate. For full coverage
-  use ``pip-audit`` or ``osv-scanner`` alongside mcp-scan.
+  use ``pip-audit`` or ``osv-scanner`` alongside mcp-audit.
 - **Match rule.** A declared specifier is considered vulnerable if it
   *permits* any version inside the advisory's vulnerable range. Example:
   ``python-multipart>=0.0.5`` permits 0.0.6 (vulnerable) so we flag it.

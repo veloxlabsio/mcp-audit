@@ -31,7 +31,7 @@ def print_terminal(report: ScanReport, console: Console | None = None) -> None:
     checks_errored = len(report.check_errors)
 
     header = Table.grid(padding=(0, 2))
-    header.add_row("[bold]mcp-scan[/bold]", f"target: [cyan]{report.target_description}[/cyan]")
+    header.add_row("[bold]mcp-audit[/bold]", f"target: [cyan]{report.target_description}[/cyan]")
     header.add_row("checks run", str(checks_run))
     header.add_row("findings", str(len(report.findings)))
     if checks_errored:
@@ -152,7 +152,7 @@ def to_json(report: ScanReport) -> str:
 
 def to_markdown(report: ScanReport) -> str:
     lines: list[str] = []
-    lines.append("# mcp-scan report")
+    lines.append("# mcp-audit report")
     lines.append("")
     lines.append(f"**Target:** `{report.target_description}`  ")
     lines.append(f"**Started:** {report.started_at}  ")

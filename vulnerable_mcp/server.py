@@ -1,8 +1,8 @@
-"""Deliberately vulnerable MCP server — used to demo mcp-scan.
+"""Deliberately vulnerable MCP server — used to demo mcp-audit.
 
 ⚠️ DO NOT USE IN PRODUCTION. Every tool in this module is broken on purpose.
 
-Five planted vulnerabilities, each mapped to the mcp-scan check that catches it:
+Five planted vulnerabilities, each mapped to the mcp-audit check that catches it:
 
     1. ANSI-hidden line-jump payload in `weather` description
            → MCPA-001 (description injection) + MCPA-002 (ANSI/control chars)

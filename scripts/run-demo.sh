@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# End-to-end local demo — scan vulnerable-mcp with mcp-scan.
+# End-to-end local demo — scan vulnerable-mcp with mcp-audit.
 #
 # Usage:  ./scripts/run-demo.sh
 #
@@ -20,7 +20,7 @@ fi
 # shellcheck disable=SC1091
 source .venv/bin/activate
 
-echo "-> installing mcp-scan (editable) and dev deps"
+echo "-> installing mcp-audit (editable) and dev deps"
 pip install --quiet --upgrade pip
 pip install --quiet -e ".[dev]"
 pip install --quiet httpx

@@ -143,4 +143,4 @@ def test_list_checks() -> None:
 def test_version() -> None:
     result = runner.invoke(app, ["version"])
     assert result.exit_code == 0
-    assert "mcp-scan" in result.output
+    assert "mcp-audit" in result.output

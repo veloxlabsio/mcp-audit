@@ -1,6 +1,6 @@
-# mcp-scan — Check Catalog (v0.1 target)
+# mcp-audit — Check Catalog (v0.1 target)
 
-This is the full set of 25 checks targeted for `mcp-scan` v0.1. Each check has an ID of the form `MCPA-NNN`. Checks land incrementally — see the status column.
+This is the full set of 25 checks targeted for `mcp-audit` v0.1. Each check has an ID of the form `MCPA-NNN`. Checks land incrementally — see the status column.
 
 **Method legend:**
 
@@ -102,7 +102,7 @@ This is the full set of 25 checks targeted for `mcp-scan` v0.1. Each check has a
 
 ## Deliberately NOT in v0.1
 
-These are handled better by neighboring tools. mcp-scan cites them rather than duplicates them.
+These are handled better by neighboring tools. mcp-audit cites them rather than duplicates them.
 
 - **Semantic LLM-judge prompt-injection scoring of descriptions** → use [`invariantlabs-ai/mcp-scan`](https://github.com/invariantlabs-ai/mcp-scan). v0.2 may ship `--deep` using a local model.
 - **Toxic-flow graph analysis across multi-server configs** → Invariant Guardrails.

@@ -1,6 +1,6 @@
 """A minimal, clean MCP server with no vulnerabilities.
 
-Used as a test fixture to verify that mcp-scan exits 0 when scanning
+Used as a test fixture to verify that mcp-audit exits 0 when scanning
 a server that has no findings.
 """
 from __future__ import annotations
